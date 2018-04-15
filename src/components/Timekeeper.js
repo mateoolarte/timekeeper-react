@@ -10,7 +10,46 @@ import FontAwesomeIcon from "@fortawesome/react-fontawesome";
 import iconEdit from "@fortawesome/fontawesome-free-solid/faEdit";
 import iconDelete from "@fortawesome/fontawesome-free-solid/faTrashAlt";
 
-export default class Timekeeper extends Component {
+function TimerHeader({ title, project }) {
+  return (
+    <header className="card-header">
+      <h2 className="card-header-title">{title}</h2>
+      <div className="card-header-icon">
+        <p className="has-text-grey">{project}</p>
+      </div>
+    </header>
+  );
+}
+
+function TimerContent({ milliseconds, onShowFormTimer, removeTimer }) {
+  return (
+    <div className="card-content">
+      <p className="has-text-centered has-text-weight-bold is-size-3">
+        {ConvertMstoHumanized(milliseconds)}
+      </p>
+      <p className="field has-text-right margin-3-top">
+        <button
+          onClick={onShowFormTimer}
+          className="button is-link is-outlined"
+        >
+          <span className="icon">
+            <FontAwesomeIcon icon={iconEdit} />
+          </span>
+        </button>
+        <button
+          onClick={removeTimer}
+          className="margin-3-left button is-danger is-outlined"
+        >
+          <span className="icon">
+            <FontAwesomeIcon icon={iconDelete} />
+          </span>
+        </button>
+      </p>
+    </div>
+  );
+}
+
+class Timekeeper extends Component {
   constructor(props) {
     super(props);
 
@@ -65,35 +104,13 @@ export default class Timekeeper extends Component {
       <section className="column is-one-third padding-2">
         {this.state.content && (
           <div className="card">
-            <header className="card-header">
-              <h2 className="card-header-title">{data.title}</h2>
-              <div className="card-header-icon">
-                <p className="has-text-grey">{data.project}</p>
-              </div>
-            </header>
-            <div className="card-content">
-              <p className="has-text-centered has-text-weight-bold is-size-3">
-                {ConvertMstoHumanized(data.milliseconds)}
-              </p>
-              <p className="field has-text-right margin-3-top">
-                <button
-                  onClick={this.showFormTimer}
-                  className="button is-link is-outlined"
-                >
-                  <span className="icon">
-                    <FontAwesomeIcon icon={iconEdit} />
-                  </span>
-                </button>
-                <button
-                  onClick={() => this.removeTimer(data)}
-                  className="margin-3-left button is-danger is-outlined"
-                >
-                  <span className="icon">
-                    <FontAwesomeIcon icon={iconDelete} />
-                  </span>
-                </button>
-              </p>
-            </div>
+            <TimerHeader title={data.title} project={data.project} />
+
+            <TimerContent
+              milliseconds={data.milliseconds}
+              onShowFormTimer={this.showFormTimer}
+              onRemoveTimer={() => this.removeTimer(data)}
+            />
 
             <StartAndStopTimer data={data} />
           </div>
@@ -111,3 +128,5 @@ export default class Timekeeper extends Component {
     );
   }
 }
+
+export default Timekeeper;
