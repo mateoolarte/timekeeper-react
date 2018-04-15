@@ -11,10 +11,7 @@ import iconAdd from "@fortawesome/fontawesome-free-solid/faPlus";
 
 function BtnAddTimer({ showFormTimer }) {
   return (
-    <button
-      className="button is-large is-success"
-      onClick={() => showFormTimer()}
-    >
+    <button className="button is-large" onClick={() => showFormTimer()}>
       <FontAwesomeIcon icon={iconAdd} />
     </button>
   );
@@ -86,7 +83,7 @@ class App extends Component {
     return (
       <div className="container">
         <h1 className="is-size-2-mobile is-size-1 has-text-centered has-text-weight-bold margin-2-top margin-3-bottom">
-          Cronometros
+          Timers
         </h1>
 
         <div className="columns is-multiline">

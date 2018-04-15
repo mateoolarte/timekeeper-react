@@ -23,10 +23,12 @@ const removeTimer = timer => {
   }
 }
 
-const updateTime = time => {
+const updateTime = (id, milliseconds, isRunning) => {
   return {
     type: "UPDATE_TIME",
-    time
+    id,
+    milliseconds,
+    isRunning
   }
 }
 

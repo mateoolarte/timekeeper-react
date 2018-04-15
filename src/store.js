@@ -8,8 +8,8 @@ const reducer = (state = {}, action) => {
         id: action.id,
         title: action.title,
         project: action.project,
-        time: "00:00:00",
-        stop: true
+        milliseconds: 0,
+        stop: false
       };
 
       return {
@@ -46,7 +46,8 @@ const reducer = (state = {}, action) => {
         if (timer.id === action.id) {
           return {
             ...timer,
-            time: action.time
+            milliseconds: action.milliseconds,
+            isRunning: action.isRunning
           }
         } else {
           return timer;
@@ -55,7 +56,7 @@ const reducer = (state = {}, action) => {
 
       return {
         ...state,
-        timers: timerUpdated
+        timers: timeUpdated
       };
 
     default:
