@@ -18,7 +18,7 @@ const Data = [
     title: "Aprender ReactJS",
     project: "Frontend Roadmap",
     milliseconds: 927000,
-    isRunning: true
+    isRunning: false
   }
 ];
 

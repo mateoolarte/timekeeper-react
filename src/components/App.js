@@ -41,27 +41,23 @@ class App extends Component {
       });
     });
   }
-
   closeFormTimer() {
     this.setState({
       content: true,
       form: false
     });
   }
-
   showFormTimer() {
     this.setState({
       content: false,
       form: true
     });
   }
-
   setValuesToUpdate(e) {
     this.setState({
       [e.target.name]: e.target.value
     });
   }
-
   createTimer() {
     const state = this.state;
     const id = state.id + 1;
@@ -78,7 +74,6 @@ class App extends Component {
 
     this.closeFormTimer();
   }
-
   render() {
     return (
       <div className="container">
