@@ -6,18 +6,18 @@ import initialData from "./initialData";
 import Timekeeper from "./Timekeeper";
 import Form from "./Form";
 
-import FontAwesomeIcon from "@fortawesome/react-fontawesome";
-import iconAdd from "@fortawesome/fontawesome-free-solid/faPlus";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPlus } from "@fortawesome/free-solid-svg-icons";
 
 function BtnAddTimer({ showFormTimer }) {
   return (
     <button className="button is-large" onClick={() => showFormTimer()}>
-      <FontAwesomeIcon icon={iconAdd} />
+      <FontAwesomeIcon icon={faPlus} />
     </button>
   );
 }
 
-class App extends Component {
+export default class App extends Component {
   constructor(props) {
     super(props);
 
@@ -104,5 +104,3 @@ class App extends Component {
     );
   }
 }
-
-export default App;

@@ -6,9 +6,8 @@ import Form from "./Form";
 import StartAndStopTimer from "./StartAndStopTimer";
 import ConvertMstoHumanized from "./convertMstoHumanized";
 
-import FontAwesomeIcon from "@fortawesome/react-fontawesome";
-import iconEdit from "@fortawesome/fontawesome-free-solid/faEdit";
-import iconDelete from "@fortawesome/fontawesome-free-solid/faTrashAlt";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEdit, faTrashAlt } from "@fortawesome/free-solid-svg-icons";
 
 function TimerHeader({ title, project }) {
   return (
@@ -33,7 +32,7 @@ function TimerContent({ milliseconds, onShowFormTimer, removeTimer }) {
           className="button is-link is-outlined"
         >
           <span className="icon">
-            <FontAwesomeIcon icon={iconEdit} />
+            <FontAwesomeIcon icon={faEdit} />
           </span>
         </button>
         <button
@@ -41,7 +40,7 @@ function TimerContent({ milliseconds, onShowFormTimer, removeTimer }) {
           className="margin-3-left button is-danger is-outlined"
         >
           <span className="icon">
-            <FontAwesomeIcon icon={iconDelete} />
+            <FontAwesomeIcon icon={faTrashAlt} />
           </span>
         </button>
       </p>
